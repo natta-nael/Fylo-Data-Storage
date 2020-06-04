@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="main.css">
+  
+  <title>Frontend Mentor | Fylo data storage component</title>
+  
+</head>
+<body>
+  <div class="container">
+
+    <!-- left container -->
+    <div class="left-container">
+
+      <div>
+
+        <img src="images/logo.svg" alt="logo" class="logo">
+        
+        <div class="icons">
+          <div class="iconbox"><img src="images/icon-document.svg" alt=""></div>
+          <div class="iconbox"><img src="images/icon-folder.svg" alt=""></div>
+          <div class="iconbox"><img src="images/icon-upload.svg" alt=""></div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- right container -->
+    <div class="right-container">
+
+      <div class="content">
+
+        <div class="wrapper2">
+
+          <p>You’ve used <span id="used" style="font-weight: 700;">500 GB</span> of your storage</p> <br>
+
+          <div class="input">
+            <input type="range" min="0" max="100" id="slider" value="50">
+            <div id="selector"></div>
+            <div id="progressBar"></div>
+          </div>
+
+          <div class="values">
+            <p>0 GB</p>
+            <p>1000 GB</p>
+          </div>
+       </div>
+
+        <div class="left"><p><span id="left" style="font-weight: 700;">500</span> GB Left</p></div>
+
+      </div>  
+
+    </div>
+
+  </div>
+
+
+  <div class="attribution">
+    <br> Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Nathaniel O.</a>.
+  </div>
+
+  <script>
+    slider = document.getElementById("slider");
+    selector = document.getElementById("selector");
+    progress = document.getElementById("progressBar");
+    used = document.getElementById("used");
+    left = document.getElementById("left");
+
+    slider.oninput = function () {
+      if (this.value > 98) {
+        selector.style.left = "98%"
+      } else {
+        selector.style.left = (this.value) + "%";
+      } 
+      progress.style.width = (this.value) + "%";
+      used.innerHTML = this.value * 10 + " GB";
+      left.innerHTML = 1000 - (this.value * 10)
+    } 
+  </script>
+</body>
+</html>
