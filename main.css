@@ -176,11 +176,12 @@ p {
 }
 
 .left p {
-    color: black;
+    color: var(--grayishBlue);
     text-align: center;
     line-height: 50px;
     position: relative;
     z-index: 2;
+    font-size: 12px;
 }
 
 .values {
